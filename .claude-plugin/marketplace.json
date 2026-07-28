@@ -1,5 +1,6 @@
 {
   "name": "eli5",
+  "description": "Marketplace for the eli5 skill: plain, concise explanations for busy executives.",
   "owner": {
     "name": "Rahul Jain",
     "email": "rahul@bobsled.co"
