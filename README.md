@@ -28,10 +28,16 @@ From GitHub:
 /plugin install eli5@eli5
 ```
 
-From the local folder (no GitHub needed):
+From a local clone:
 
 ```
-/plugin marketplace add /Users/rahuljain/work/eli5
+git clone https://github.com/rahulj51/eli5.git
+```
+
+Then in Claude Code:
+
+```
+/plugin marketplace add /path/to/eli5
 /plugin install eli5@eli5
 ```
 
@@ -62,7 +68,7 @@ Manual alternative, if you have this repo cloned locally:
 
 ```
 mkdir -p ~/.codex/skills
-ln -s /Users/rahuljain/work/eli5/skills/eli5 ~/.codex/skills/eli5
+ln -s /path/to/eli5/skills/eli5 ~/.codex/skills/eli5
 ```
 
 Codex loads skills automatically when a request matches the skill's description, so saying "eli5 this" in a prompt is enough. To update after a skill change, re-run the npx command (a symlink updates by itself).
@@ -78,3 +84,7 @@ skills/eli5/SKILL.md              The skill itself (shared by Claude and Codex)
 ## Editing the skill
 
 All behavior lives in `skills/eli5/SKILL.md`. Edit it, push, and reinstall or update in each tool.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
