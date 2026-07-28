@@ -1,0 +1,14 @@
+{
+  "name": "eli5",
+  "owner": {
+    "name": "Rahul Jain",
+    "email": "rahul@bobsled.co"
+  },
+  "plugins": [
+    {
+      "name": "eli5",
+      "source": "./",
+      "description": "Explain anything in plain, concise English for a busy executive."
+    }
+  ]
+}

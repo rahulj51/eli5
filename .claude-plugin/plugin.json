@@ -1,0 +1,9 @@
+{
+  "name": "eli5",
+  "description": "Explain anything in plain, concise English for a busy executive.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Rahul Jain",
+    "email": "rahul@bobsled.co"
+  }
+}
