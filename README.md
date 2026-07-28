@@ -21,10 +21,10 @@ It applies to anything: agent responses, specs, docs, plans, bug reports, code r
 
 This repo is a Claude Code plugin marketplace containing one plugin.
 
-From GitHub (after you push this repo):
+From GitHub:
 
 ```
-/plugin marketplace add <your-github-user>/eli5
+/plugin marketplace add rahulj51/eli5
 /plugin install eli5@eli5
 ```
 
