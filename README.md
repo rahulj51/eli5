@@ -44,23 +44,28 @@ To update later: `/plugin marketplace update eli5`.
 
 ## Install in Codex CLI
 
-Codex uses the same Agent Skills format. Copy or symlink the skill folder into your Codex skills directory.
+Codex uses the same Agent Skills format. The easiest way is the `skills` CLI from [skills.sh](https://www.skills.sh), which pulls the skill from GitHub and installs it into the right directory:
 
-Personal (all projects):
+```
+npx skills add rahulj51/eli5 -a codex
+```
+
+Add `-g` to install globally (all projects) instead of just the current project, and `-y` to skip prompts:
+
+```
+npx skills add rahulj51/eli5 -a codex -g -y
+```
+
+The same command works for other agents too. Run it without `-a` and it detects every agent you have installed (Claude Code, Codex, Cursor, and others) and asks where to install.
+
+Manual alternative, if you have this repo cloned locally:
 
 ```
 mkdir -p ~/.codex/skills
 ln -s /Users/rahuljain/work/eli5/skills/eli5 ~/.codex/skills/eli5
 ```
 
-Per project:
-
-```
-mkdir -p <project>/.codex/skills
-cp -r /Users/rahuljain/work/eli5/skills/eli5 <project>/.codex/skills/eli5
-```
-
-Codex loads skills automatically when a request matches the skill's description, so saying "eli5 this" in a prompt is enough. A symlink means updates to this repo apply immediately; a copy needs re-copying after changes.
+Codex loads skills automatically when a request matches the skill's description, so saying "eli5 this" in a prompt is enough. To update after a skill change, re-run the npx command (a symlink updates by itself).
 
 ## Repo layout
 
