@@ -1,21 +1,23 @@
 # eli5
 
-A skill that makes AI agents explain things in plain, concise English for a busy executive (think CTO/CPO). Not a literal five-year-old explanation: simple words, short sentences, single-level lists with one or two sentences per item, bottom line first.
+A skill that makes AI agents use ASD-STE100 Simplified Technical English (STE). STE is a controlled form of English for clear and accurate technical writing.
 
 Works in both Claude Code and OpenAI Codex CLI. Both tools use the same skill format (a folder with a `SKILL.md` file), so this repo holds one skill definition and two install paths.
 
 ## What it does
 
-When you write "eli5" in a prompt, or ask for a plain-English version of something, the agent rewrites the content following these rules:
+When you write "eli5" in a prompt, or ask for a plain-English version of something, the agent rewrites the content with ASD-STE100 only.
 
-- Plain, simple English with short, common words.
-- Concise: every word earns its place.
-- Bottom line first.
-- Lists are single level only, one or two short sentences per item.
-- Jargon is avoided or explained in a few plain words.
-- Accurate: simple never becomes wrong.
+- It uses the STE writing rules and controlled dictionary.
+- It uses approved words with their approved meanings and parts of speech.
+- It treats subject terms as technical nouns or technical verbs.
+- It uses short sentences, controlled verb forms, and the active voice.
+- It applies the separate STE rules for procedures, descriptions, and safety instructions.
+- It preserves code, commands, identifiers, and other text that must stay unchanged.
 
 It applies to anything: agent responses, specs, docs, plans, bug reports, code review comments.
+
+The skill targets ASD-STE100 Issue 9, dated January 15, 2025. The official standard is available from [asd-ste100.org](https://www.asd-ste100.org/).
 
 ## Install in Claude Code (plugin, recommended)
 
