@@ -1,6 +1,6 @@
 {
   "name": "eli5",
-  "description": "Explain anything in ASD-STE100 Simplified Technical English.",
+  "description": "Plain-English executive summaries and ASD-STE100 technical writing.",
   "version": "0.2.0",
   "author": {
     "name": "rahulj51"

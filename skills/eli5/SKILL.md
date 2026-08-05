@@ -1,67 +1,42 @@
 ---
 name: eli5
-description: Rewrite or summarize content only in ASD-STE100 Simplified Technical English. Use whenever the user says "eli5" anywhere in a request, or asks for a simple, plain-English, or executive version of an agent response, specification, document, plan, bug report, or code review comment.
+description: Rewrite or summarize content in plain, concise English for a busy executive (think CTO/CPO). Use whenever the user says "eli5" anywhere in a request, or asks for a simple, plain-English, or executive version of an agent response, spec, doc, plan, bug report, or code review comment.
 ---
 
 # eli5
 
-Write the answer only in ASD-STE100 Simplified Technical English (STE). Do not use a different plain-language standard or add separate style rules.
+"eli5" here does not mean explaining to a literal five-year-old. It means explaining to a busy executive, like a CTO or CPO: someone smart who has no time and may not know the technical details.
 
-Use the current official issue of ASD-STE100 as the authority. This skill was written for Issue 9, dated January 15, 2025. Get the current official standard from [asd-ste100.org](https://www.asd-ste100.org/).
+## When this applies
 
-## Method
+- The user writes "eli5" anywhere in their request.
+- The user asks for a simple, plain-English, shorter, or executive version of something.
+- It works on any content: your own responses, specs, docs, plans, bug reports, code review comments, incident writeups.
 
-1. Keep the meaning, facts, risks, limits, names, and necessary actions from the source.
-2. Identify each part as procedural writing or descriptive writing. An answer can contain both types. Use descriptive writing for text that does not give work steps.
-3. Rewrite the text with the STE writing rules and the STE dictionary.
-4. Check the result against the requirements below before you give the answer.
+## Style rules
 
-## STE requirements
+- Use plain, simple English. Prefer short, common words.
+- Be concise. Cut every word that does not add meaning.
+- Lead with the point. The first sentence gives the bottom line.
+- Lists are single level only. Never nest. Each item is one or two short sentences, also in plain English.
+- Avoid jargon. If a technical term is unavoidable, explain it in a few plain words the first time it appears.
+- Write complete sentences. Do not compress into fragments, abbreviations, or arrow chains.
+- Keep paragraphs short: one to three sentences.
+- Use headings only when the content is long enough to need them.
+- No emojis.
 
-- Use only words that the STE dictionary approves, or words that qualify as technical nouns or technical verbs.
-- Use each approved word only with its approved meaning, part of speech, and form.
-- Use one term for one meaning. Use the same term each time.
-- Use American English spelling, unless an applicable official directive requires different spelling.
-- Use multi-word nouns of three words or fewer. If an official technical noun is longer, write it in full first and make its meaning clear.
-- Use only the infinitive, imperative, simple present, simple past, simple future, and past participle as an adjective.
-- Do not use an `-ing` form unless it is a technical noun or a modifier in a technical noun.
-- Use the active voice. In descriptive writing, use the passive voice only when the agent is unknown.
-- Do not use complex auxiliary verb constructions or phrasal verbs.
-- Use a verb, not a noun, to state an action when the dictionary approves that verb.
-- Write complete, short, clear sentences. Do not omit words. Do not use contractions.
-- Use a vertical list when it makes complex text easier to understand.
-- Use articles and demonstrative adjectives when they are applicable.
-- Do not use a semicolon.
+## What to keep
 
-For procedural writing:
+- The conclusion or decision. That is the whole point.
+- Anything the reader must act on: risks, costs, deadlines, open questions.
+- Numbers and names that change the reader's decision. Drop the rest.
+- Accuracy. Simple must not become wrong. If a simplification loses an important caveat, keep the caveat in one short sentence.
 
-- Use a maximum of 20 words in each sentence.
-- Give one instruction in each sentence. Give two actions only when they occur at the same time.
-- Write instructions in the imperative form.
-- Put a necessary condition before the command and divide it from the command with a comma.
-- Use notes only for information, not instructions.
+## Output shape
 
-For descriptive writing:
-
-- Use a maximum of 25 words in each sentence.
-- Give information gradually and in a logical sequence.
-- Keep one topic in each paragraph.
-- Use no more than six sentences in each paragraph.
-- Do not use the imperative form.
-
-For safety instructions:
-
-- Identify the risk level with the applicable word, such as `WARNING` or `CAUTION`.
-- Start with a clear command or condition.
-- Explain the risk or possible result.
-
-## Protected text
-
-Do not change code, commands, file paths, URLs, identifiers, data, or text that the user requires verbatim. Use necessary product and subject terms only when they qualify as STE technical nouns or technical verbs. Clearly separate protected text from the STE text.
-
-## Compliance
-
-Do not claim formal ASD-STE100 compliance unless you checked every word and sentence against the current official standard. If you cannot access the controlled dictionary, apply all available STE rules and state that you did not complete a dictionary check.
+- A short question gets one to three plain sentences. No headers, no list.
+- Longer content gets a one-line summary first, then a flat list.
+- The whole thing should be readable in under a minute.
 
 ## Example
 
@@ -71,4 +46,4 @@ Before:
 
 After:
 
-> A change from last month caused the migration failure. The data did not cause the failure. The change modified how the system saves state. Thus, the system identifies all resources as changed. The system tried to apply all resources again and reached the rate limit. Regenerate the saved state. Then, start the migration again.
+> The migration failed because of a change we made last month, not bad data. A recent PR changed how we save state, so the system now thinks every resource changed. It tried to re-apply everything at once and hit rate limits. Fix: regenerate the saved state once, then re-run.

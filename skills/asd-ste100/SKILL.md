@@ -1,0 +1,74 @@
+---
+name: asd-ste100
+description: Create, rewrite, or summarize technical content in ASD-STE100 Simplified Technical English. Use when the user says "ASD-STE100", "ASD-ST100", "STE100", or "Simplified Technical English", or explicitly asks for controlled technical English.
+---
+
+# ASD-STE100
+
+Write the answer only in ASD-STE100 Simplified Technical English (STE). Do not use a different plain-language standard or add separate style rules.
+
+Use the current official issue of ASD-STE100 as the authority. This skill was written for Issue 9, dated January 15, 2025. Get the current official standard from [asd-ste100.org](https://www.asd-ste100.org/).
+
+## Method
+
+1. Keep the meaning, facts, risks, limits, names, and necessary actions from the source.
+2. Identify each part as procedural writing or descriptive writing. An answer can contain both types. Use descriptive writing for text that does not give work steps.
+3. Rewrite the text with the STE writing rules and the STE dictionary.
+4. Check the result against the requirements below before you give the answer.
+
+## STE requirements
+
+- Use only words that the STE dictionary approves, or words that qualify as technical nouns or technical verbs.
+- Use each approved word only with its approved meaning, part of speech, and form.
+- Use one term for one meaning. Use the same term each time.
+- Use American English spelling, unless an applicable official directive requires different spelling.
+- Use multi-word nouns of three words or fewer. If an official technical noun is longer, write it in full first and make its meaning clear.
+- Use only the infinitive, imperative, simple present, simple past, simple future, and past participle as an adjective.
+- Do not use an `-ing` form unless it is a technical noun or a modifier in a technical noun.
+- Use the active voice. In descriptive writing, use the passive voice only when the agent is unknown.
+- Do not use complex auxiliary verb constructions or phrasal verbs.
+- Use a verb, not a noun, to state an action when the dictionary approves that verb.
+- Write complete, short, clear sentences. Do not omit words. Do not use contractions.
+- Use a vertical list when it makes complex text easier to understand.
+- Use articles and demonstrative adjectives when they are applicable.
+- Do not use a semicolon.
+
+For procedural writing:
+
+- Use a maximum of 20 words in each sentence.
+- Give one instruction in each sentence. Give two actions only when they occur at the same time.
+- Write instructions in the imperative form.
+- Put a necessary condition before the command and divide it from the command with a comma.
+- Use notes only for information, not instructions.
+
+For descriptive writing:
+
+- Use a maximum of 25 words in each sentence.
+- Give information gradually and in a logical sequence.
+- Keep one topic in each paragraph.
+- Use no more than six sentences in each paragraph.
+- Do not use the imperative form.
+
+For safety instructions:
+
+- Identify the risk level with the applicable word, such as `WARNING` or `CAUTION`.
+- Start with a clear command or condition.
+- Explain the risk or possible result.
+
+## Protected text
+
+Do not change code, commands, file paths, URLs, identifiers, data, or text that the user requires verbatim. Use necessary product and subject terms only when they qualify as STE technical nouns or technical verbs. Clearly separate protected text from the STE text.
+
+## Compliance
+
+Do not claim formal ASD-STE100 compliance unless you checked every word and sentence against the current official standard. If you cannot access the controlled dictionary, apply all available STE rules and state that you did not complete a dictionary check.
+
+## Example
+
+Before:
+
+> The migration failed because the reconciler's idempotency check compares the resource hash against the previously persisted state snapshot, but the snapshot serialization was changed in #4123 to exclude default-valued fields, so hashes no longer match and every resource is treated as drifted, triggering a full re-apply which exceeds the API rate limits.
+
+After:
+
+> A change from last month caused the migration failure. The data did not cause the failure. The change modified how the system saves state. Thus, the system identifies all resources as changed. The system tried to apply all resources again and reached the rate limit. Regenerate the saved state. Then, start the migration again.

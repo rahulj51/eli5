@@ -1,0 +1,4 @@
+interface:
+  display_name: "ASD-STE100"
+  short_description: "Write with Simplified Technical English"
+  default_prompt: "Use $asd-ste100 to rewrite this technical text with ASD-STE100 Simplified Technical English."
