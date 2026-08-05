@@ -5,7 +5,7 @@ Two writing skills for AI agents:
 - `eli5` explains things in plain, concise English for a busy executive.
 - `asd-ste100` writes technical content in ASD-STE100 Simplified Technical English (STE).
 
-Works in both Claude Code and OpenAI Codex CLI. Both tools use the same skill format, so this repo holds both skill definitions and two install paths.
+Works in both Claude Code and OpenAI Codex. Each tool can install both skills as one plugin.
 
 ## What it does
 
@@ -57,21 +57,46 @@ Then use either skill:
 
 To update later: `/plugin marketplace update eli5`.
 
-## Install in Codex CLI
+## Install in Codex
 
-Codex uses the same Agent Skills format. The easiest way is the `skills` CLI from [skills.sh](https://www.skills.sh), which pulls the skill from GitHub and installs it into the right directory:
+Add this repository as a Codex plugin marketplace, then install the plugin:
 
 ```
-npx skills add rahulj51/eli5 -a codex
+codex plugin marketplace add rahulj51/eli5
+codex plugin add eli5@eli5
 ```
 
-The command lets you select one or both skills. Add `-g` to install globally and `-y` to skip prompts. This command installs both:
+If you installed `eli5` earlier as a standalone skill, remove that copy first to avoid duplicate skill names:
+
+```
+npx skills remove -g -a codex -s eli5 -y
+```
+
+You can also start Codex and open the plugin browser:
+
+```
+codex
+/plugins
+```
+
+Choose the `eli5` marketplace and install the `eli5` plugin. Start a new Codex session after installation. Both skills are then available. Use `$eli5` or `$asd-ste100` to select one explicitly.
+
+To update later:
+
+```
+codex plugin marketplace upgrade eli5
+codex plugin add eli5@eli5
+```
+
+Start a new Codex session after the update.
+
+### Standalone skill install
+
+If you do not want the plugin, use the `skills` CLI from [skills.sh](https://www.skills.sh):
 
 ```
 npx skills add rahulj51/eli5 -a codex -s eli5 -s asd-ste100 -g -y
 ```
-
-The same command works for other agents too. Run it without `-a` and it detects every agent you have installed (Claude Code, Codex, Cursor, and others) and asks where to install.
 
 Manual alternative, if you have this repo cloned locally:
 
@@ -81,21 +106,21 @@ ln -s /path/to/eli5/skills/eli5 ~/.codex/skills/eli5
 ln -s /path/to/eli5/skills/asd-ste100 ~/.codex/skills/asd-ste100
 ```
 
-Codex loads skills automatically when a request matches a skill's description. To update after a skill change, re-run the npx command. A symlink updates by itself.
+Codex loads skills automatically when a request matches a skill's description. To update after a skill change, re-run the `npx` command. A symlink updates by itself.
 
 ## Repo layout
 
 ```
 .claude-plugin/marketplace.json   Claude Code marketplace manifest
 .claude-plugin/plugin.json        Claude Code plugin manifest
+.codex-plugin/plugin.json         Codex plugin manifest
 skills/eli5/SKILL.md              The skill itself (shared by Claude and Codex)
 skills/asd-ste100/SKILL.md        The ASD-STE100 skill (shared by Claude and Codex)
-skills/asd-ste100/agents/         Codex UI metadata for the ASD-STE100 skill
 ```
 
 ## Editing the skill
 
-Behavior lives in each skill's `SKILL.md`. Edit it, push, and reinstall or update in each tool.
+Behavior lives in each skill's `SKILL.md`. When you release a change, bump the version in both plugin manifests, push, and update the plugin in each tool.
 
 ## License
 

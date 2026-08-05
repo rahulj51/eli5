@@ -1,0 +1,35 @@
+{
+  "name": "eli5",
+  "version": "0.3.0",
+  "description": "Plain-English executive summaries and ASD-STE100 technical writing.",
+  "author": {
+    "name": "rahulj51",
+    "url": "https://github.com/rahulj51"
+  },
+  "homepage": "https://github.com/rahulj51/eli5",
+  "repository": "https://github.com/rahulj51/eli5",
+  "license": "MIT",
+  "keywords": [
+    "plain-english",
+    "eli5",
+    "asd-ste100",
+    "simplified-technical-english",
+    "technical-writing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "eli5",
+    "shortDescription": "Write in plain English or ASD-STE100",
+    "longDescription": "Explain content in concise plain English for busy executives, or write technical content with ASD-STE100 Simplified Technical English.",
+    "developerName": "rahulj51",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "websiteURL": "https://github.com/rahulj51/eli5",
+    "defaultPrompt": [
+      "Explain this in plain English for a busy executive.",
+      "Rewrite this with ASD-STE100 Simplified Technical English."
+    ]
+  }
+}
