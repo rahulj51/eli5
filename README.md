@@ -5,7 +5,7 @@ Two writing skills for AI agents:
 - `eli5` explains things in plain, concise English for a busy executive.
 - `ste` writes technical content in ASD-STE100 Simplified Technical English (STE).
 
-Works in both Claude Code and OpenAI Codex. Each tool can install both skills as one plugin.
+Works in Claude Code, OpenAI Codex, Pi, and OpenCode. Each tool can load the same two skill definitions.
 
 ## What it does
 
@@ -109,19 +109,64 @@ ln -s /path/to/eli5/skills/ste ~/.codex/skills/ste
 
 Codex loads skills automatically when a request matches a skill's description. To update after a skill change, re-run the `npx` command. A symlink updates by itself.
 
+## Install in Pi
+
+Install this repository as a [Pi package](https://pi.dev/docs/latest/packages):
+
+```
+pi install git:github.com/rahulj51/eli5
+```
+
+Then use either skill:
+
+- `/skill:eli5 <paste text or describe what to simplify>`
+- `/skill:ste <paste technical text or describe what to write>`
+- Or describe the task naturally and let Pi select the matching skill.
+
+To update later:
+
+```
+pi update --extension git:github.com/rahulj51/eli5
+```
+
+## Install in OpenCode
+
+OpenCode supports [Agent Skills](https://opencode.ai/docs/skills) directly. Install both skills with the `skills` CLI:
+
+```
+npx skills add rahulj51/eli5 -a opencode -s eli5 -s ste -g -y
+```
+
+Start a new OpenCode session after installation. Describe the task naturally and OpenCode will load the matching skill.
+
+To update later:
+
+```
+npx skills update eli5 ste -g -y
+```
+
+Manual alternative, if you have this repo cloned locally:
+
+```
+mkdir -p ~/.config/opencode/skills
+ln -s /path/to/eli5/skills/eli5 ~/.config/opencode/skills/eli5
+ln -s /path/to/eli5/skills/ste ~/.config/opencode/skills/ste
+```
+
 ## Repo layout
 
 ```
 .claude-plugin/marketplace.json   Claude Code marketplace manifest
 .claude-plugin/plugin.json        Claude Code plugin manifest
 .codex-plugin/plugin.json         Codex plugin manifest
-skills/eli5/SKILL.md              The skill itself (shared by Claude and Codex)
-skills/ste/SKILL.md               The ASD-STE100 skill (shared by Claude and Codex)
+package.json                      Pi package manifest
+skills/eli5/SKILL.md              The plain-English skill shared by all supported tools
+skills/ste/SKILL.md               The ASD-STE100 skill shared by all supported tools
 ```
 
 ## Editing the skill
 
-Behavior lives in each skill's `SKILL.md`. When you release a change, bump the version in both plugin manifests, push, and update the plugin in each tool.
+Behavior lives in each skill's `SKILL.md`. For a release, bump the version in all three package manifests, push, and update each tool.
 
 ## License
 
