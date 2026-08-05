@@ -1,21 +1,29 @@
 # eli5
 
-A skill that makes AI agents explain things in plain, concise English for a busy executive (think CTO/CPO). Not a literal five-year-old explanation: simple words, short sentences, single-level lists with one or two sentences per item, bottom line first.
+Two writing skills for AI agents:
 
-Works in both Claude Code and OpenAI Codex CLI. Both tools use the same skill format (a folder with a `SKILL.md` file), so this repo holds one skill definition and two install paths.
+- `eli5` explains things in plain, concise English for a busy executive.
+- `asd-ste100` writes technical content in ASD-STE100 Simplified Technical English (STE).
+
+Works in both Claude Code and OpenAI Codex CLI. Both tools use the same skill format, so this repo holds both skill definitions and two install paths.
 
 ## What it does
 
-When you write "eli5" in a prompt, or ask for a plain-English version of something, the agent rewrites the content following these rules:
+### eli5
 
-- Plain, simple English with short, common words.
-- Concise: every word earns its place.
-- Bottom line first.
-- Lists are single level only, one or two short sentences per item.
-- Jargon is avoided or explained in a few plain words.
-- Accurate: simple never becomes wrong.
+When you write "eli5" in a prompt, or ask for a plain-English version, the agent gives you the bottom line in short, natural language.
 
 It applies to anything: agent responses, specs, docs, plans, bug reports, code review comments.
+
+### asd-ste100
+
+When you write "ASD-STE100" or ask for Simplified Technical English, the agent uses the STE writing rules and controlled dictionary.
+
+- It uses approved words with their approved meanings and parts of speech.
+- It applies the separate STE rules for procedures, descriptions, and safety instructions.
+- It preserves code, commands, identifiers, and other text that must stay unchanged.
+
+The skill targets ASD-STE100 Issue 9, dated January 15, 2025. The official standard is available from [asd-ste100.org](https://www.asd-ste100.org/).
 
 ## Install in Claude Code (plugin, recommended)
 
@@ -41,10 +49,11 @@ Then in Claude Code:
 /plugin install eli5@eli5
 ```
 
-Then use it either way:
+Then use either skill:
 
-- Explicitly: `/eli5 <paste text or describe what to simplify>`
-- Naturally: just include "eli5" in any prompt, e.g. "eli5 this bug report". The skill's description triggers automatically.
+- `/eli5 <paste text or describe what to simplify>`
+- `/asd-ste100 <paste technical text or describe what to write>`
+- Or include "eli5" or "ASD-STE100" in a natural prompt. The matching skill triggers automatically.
 
 To update later: `/plugin marketplace update eli5`.
 
@@ -56,10 +65,10 @@ Codex uses the same Agent Skills format. The easiest way is the `skills` CLI fro
 npx skills add rahulj51/eli5 -a codex
 ```
 
-Add `-g` to install globally (all projects) instead of just the current project, and `-y` to skip prompts:
+The command lets you select one or both skills. Add `-g` to install globally and `-y` to skip prompts. This command installs both:
 
 ```
-npx skills add rahulj51/eli5 -a codex -g -y
+npx skills add rahulj51/eli5 -a codex -s eli5 -s asd-ste100 -g -y
 ```
 
 The same command works for other agents too. Run it without `-a` and it detects every agent you have installed (Claude Code, Codex, Cursor, and others) and asks where to install.
@@ -69,9 +78,10 @@ Manual alternative, if you have this repo cloned locally:
 ```
 mkdir -p ~/.codex/skills
 ln -s /path/to/eli5/skills/eli5 ~/.codex/skills/eli5
+ln -s /path/to/eli5/skills/asd-ste100 ~/.codex/skills/asd-ste100
 ```
 
-Codex loads skills automatically when a request matches the skill's description, so saying "eli5 this" in a prompt is enough. To update after a skill change, re-run the npx command (a symlink updates by itself).
+Codex loads skills automatically when a request matches a skill's description. To update after a skill change, re-run the npx command. A symlink updates by itself.
 
 ## Repo layout
 
@@ -79,11 +89,13 @@ Codex loads skills automatically when a request matches the skill's description,
 .claude-plugin/marketplace.json   Claude Code marketplace manifest
 .claude-plugin/plugin.json        Claude Code plugin manifest
 skills/eli5/SKILL.md              The skill itself (shared by Claude and Codex)
+skills/asd-ste100/SKILL.md        The ASD-STE100 skill (shared by Claude and Codex)
+skills/asd-ste100/agents/         Codex UI metadata for the ASD-STE100 skill
 ```
 
 ## Editing the skill
 
-All behavior lives in `skills/eli5/SKILL.md`. Edit it, push, and reinstall or update in each tool.
+Behavior lives in each skill's `SKILL.md`. Edit it, push, and reinstall or update in each tool.
 
 ## License
 

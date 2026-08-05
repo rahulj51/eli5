@@ -1,6 +1,6 @@
 {
   "name": "eli5",
-  "description": "Marketplace for the eli5 skill: plain, concise explanations for busy executives.",
+  "description": "Marketplace for the eli5 and asd-ste100 writing skills.",
   "owner": {
     "name": "rahulj51"
   },
@@ -8,7 +8,7 @@
     {
       "name": "eli5",
       "source": "./",
-      "description": "Explain anything in plain, concise English for a busy executive."
+      "description": "Plain-English executive summaries and ASD-STE100 technical writing."
     }
   ]
 }

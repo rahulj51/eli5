@@ -1,7 +1,7 @@
 {
   "name": "eli5",
-  "description": "Explain anything in plain, concise English for a busy executive.",
-  "version": "0.1.0",
+  "description": "Plain-English executive summaries and ASD-STE100 technical writing.",
+  "version": "0.2.0",
   "author": {
     "name": "rahulj51"
   },
