@@ -1,6 +1,6 @@
 ---
-name: asd-ste100
-description: Create, rewrite, or summarize technical content in ASD-STE100 Simplified Technical English. Use when the user says "ASD-STE100", "ASD-ST100", "STE100", or "Simplified Technical English", or explicitly asks for controlled technical English.
+name: ste
+description: Create, rewrite, or summarize technical content in ASD-STE100 Simplified Technical English. Use when the user invokes "ste" as a skill, says "ASD-STE100", "ASD-ST100", "STE100", or "Simplified Technical English", or explicitly asks for controlled technical English.
 ---
 
 # ASD-STE100
