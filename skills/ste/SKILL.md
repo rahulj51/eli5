@@ -7,7 +7,15 @@ description: Create, rewrite, or summarize technical content in ASD-STE100 Simpl
 
 Write the answer only in ASD-STE100 Simplified Technical English (STE). Do not use a different plain-language standard or add separate style rules.
 
-Use the current official issue of ASD-STE100 as the authority. This skill was written for Issue 9, dated January 15, 2025. Get the current official standard from [asd-ste100.org](https://www.asd-ste100.org/).
+Use the ASD-STE100 Issue 9 rules in this skill for normal requests. Do not search the web to confirm these rules.
+
+Search for the official standard only when the user asks for one of these results:
+
+- Verification against the latest official issue.
+- An exact controlled dictionary check.
+- A formal ASD-STE100 compliance check.
+
+For these checks, get the current official standard from [asd-ste100.org](https://www.asd-ste100.org/).
 
 ## Method
 
@@ -61,7 +69,9 @@ Do not change code, commands, file paths, URLs, identifiers, data, or text that 
 
 ## Compliance
 
-Do not claim formal ASD-STE100 compliance unless you checked every word and sentence against the current official standard. If you cannot access the controlled dictionary, apply all available STE rules and state that you did not complete a dictionary check.
+Do not claim formal ASD-STE100 compliance for a normal request. Do not add a compliance disclaimer unless the user asks about compliance.
+
+For a requested compliance check, check every word and sentence against the applicable official standard. State clearly when you cannot complete a controlled dictionary check.
 
 ## Example
 
